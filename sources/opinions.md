@@ -1,2 +1,4 @@
 - [George Hotz (Geohot)](https://geohot.github.io/blog/)
 - [How to make life easy](https://www.youtube.com/watch?v=RUePwWspKHI)
+- [ArTorr](https://www.youtube.com/channel/UCHSU2msiHiOExWWdsIZ8omw)
+- [Pokemon Mystery](https://www.youtube.com/watch?v=Qil4OpfOufU)

@@ -6,3 +6,11 @@
 - [No Engineer Here](https://www.youtube.com/@NoEngineerHere)
 - [Reps](https://www.youtube.com/@reps)
 - [Eirik Brandal](https://www.youtube.com/@EirikBrandalf/videos)
+
+- [Shipping Container Shop](https://www.youtube.com/watch?v=1FiaFoEp4us)
+- [Cyberpunk Miata](https://www.youtube.com/watch?v=PLJ24dAL-z4)
+- [Van Neistat](https://www.youtube.com/channel/UC5mPJA4y5G8Z6aNkY6AxgAw)
+- [Scott Yu-Jan](https://www.youtube.com/channel/UCAbAsEZ-0LccTNbl8r-3EaQ)
+- [Matthew Encina](https://www.youtube.com/channel/UCSLeoz5odIGS2GdlbHbCAUg)
+- [Matthew Lim](https://www.youtube.com/channel/UC_ZOcNEBK87kdK88yMzdxXw)
+- [TLS Garage](https://www.youtube.com/channel/UCf2hu_ciyJ3NsikmcChTDnw)

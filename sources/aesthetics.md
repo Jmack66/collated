@@ -10,3 +10,7 @@
 - [Oliur](https://www.youtube.com/oliur)
 - [Trench Crusade](https://www.trenchcrusade.com/lore/)
 - [Teenage Engineering](https://teenage.engineering/)
+
+- [Paul Chadeisson](https://www.youtube.com/channel/UC1eXD38PuOCSJiiH_xA3R_Q)
+- [Piplup Step Animation](https://www.youtube.com/watch?v=bm0nLJuRNbw)
+- [Justice - IRIS](https://www.youtube.com/watch?v=6MucREx-e4Q)
