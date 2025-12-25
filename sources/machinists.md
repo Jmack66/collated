@@ -1,0 +1,6 @@
+- [Inheritance Machining](https://www.youtube.com/@InheritanceMachining)
+- [Chronova Engineering](https://www.youtube.com/@chronovaengineering)
+- [This Old Tony](https://www.youtube.com/@ThisOldTony)
+- [NYC CNC](https://www.youtube.com/@nyccnc/videos)
+- [Guerrilla Guide to CNC](https://lcamtuf.coredump.cx/gcnc/ch6/)
+- [LShang882](https://www.youtube.com/@lshang882)

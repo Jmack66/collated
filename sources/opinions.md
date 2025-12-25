@@ -1,0 +1,2 @@
+- [George Hotz (Geohot)](https://geohot.github.io/blog/)
+- [How to make life easy](https://www.youtube.com/watch?v=RUePwWspKHI)

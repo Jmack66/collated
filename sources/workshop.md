@@ -1,0 +1,8 @@
+- [Adam Savage’s Tested](https://www.youtube.com/@tested)
+- [Bobby Fingers](https://www.youtube.com/@bobbyfingers/videos)
+- [AvE](https://www.youtube.com/@arduinoversusevil2025)
+- [Acorn Land Labs](https://www.youtube.com/@AcornLandLabs/videos)
+- [Brunger Builds](https://www.youtube.com/@brungerbuilds/videos)
+- [No Engineer Here](https://www.youtube.com/@NoEngineerHere)
+- [Reps](https://www.youtube.com/@reps)
+- [Eirik Brandal](https://www.youtube.com/@EirikBrandalf/videos)

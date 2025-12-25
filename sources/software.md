@@ -1,0 +1,3 @@
+- [Dave's Garage](https://www.youtube.com/@DavesGarage)
+- [GxAce](https://www.youtube.com/@GxAce)
+- [Alt-C](https://www.youtube.com/@alt-c/videos)
