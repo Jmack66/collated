@@ -6,7 +6,7 @@
     --accent-workshop: #ff4757;
     --accent-aesthetics: #1e90ff;
     --accent-software: #a55eea;
-    --accent-opinions: #ff6b81;
+    --accent-opinions-lifestyle: #ff6b81;
     --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --font-mono: 'Menlo', 'Monaco', 'Courier New', monospace;
 }
@@ -92,8 +92,8 @@ section {
     background-color: var(--accent-software);
 }
 
-.cat-opinions .category-marker {
-    background-color: var(--accent-opinions);
+.cat-opinions-lifestyle .category-marker {
+    background-color: var(--accent-opinions-lifestyle);
 }
 
 h2 {

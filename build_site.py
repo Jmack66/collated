@@ -12,7 +12,7 @@ CATEGORY_ORDER = [
     'workshop',
     'aesthetics',
     'software',
-    'opinions'
+    'opinions_lifestyle'
 ]
 
 # Metadata for each category
@@ -22,7 +22,7 @@ CATEGORY_META = {
     'workshop': {'title': 'Workshop & Builds', 'class': 'cat-workshop'},
     'aesthetics': {'title': 'Aesthetics & Design', 'class': 'cat-aesthetics'},
     'software': {'title': 'Software & Tech', 'class': 'cat-software'},
-    'opinions': {'title': 'Opinions', 'class': 'cat-opinions'}
+    'opinions_lifestyle': {'title': 'Opinions and Lifestyle', 'class': 'cat-opinions-lifestyle'}
 }
 
 HTML_HEADER = """<!DOCTYPE html>
