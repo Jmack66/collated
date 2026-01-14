@@ -1,0 +1,33 @@
+name: Build Site
+
+on:
+  push:
+    paths:
+      - 'sources/*.md'
+      - 'build_site.py'
+      - 'styles.css'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Run build script
+        run: python build_site.py
+
+      - name: Commit and Push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Auto-rebuild site from sources"
+          file_pattern: index.html
