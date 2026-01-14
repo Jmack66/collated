@@ -14,3 +14,5 @@
 - [Matthew Encina](https://www.youtube.com/channel/UCSLeoz5odIGS2GdlbHbCAUg)
 - [Matthew Lim](https://www.youtube.com/channel/UC_ZOcNEBK87kdK88yMzdxXw)
 - [TLS Garage](https://www.youtube.com/channel/UCf2hu_ciyJ3NsikmcChTDnw)
+- [Save it For Parts](https://www.youtube.com/@saveitforparts)
+- [Ben Jordan](https://www.youtube.com/@BennJordan)
