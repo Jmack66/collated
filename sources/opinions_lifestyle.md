@@ -4,3 +4,4 @@
 - [Pokemon Mystery](https://www.youtube.com/watch?v=Qil4OpfOufU)
 - [Dr. K's Meditation Guide](https://www.youtube.com/watch?v=mwyBMxad-vU)
 - [Sorting Method For Home](https://www.youtube.com/watch?v=_SNiAdmA51Q)
+- [Anthropic CEO Blog Post](https://www.darioamodei.com/)
