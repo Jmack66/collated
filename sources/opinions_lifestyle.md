@@ -5,3 +5,5 @@
 - [Dr. K's Meditation Guide](https://www.youtube.com/watch?v=mwyBMxad-vU)
 - [Sorting Method For Home](https://www.youtube.com/watch?v=_SNiAdmA51Q)
 - [Anthropic CEO Blog Post](https://www.darioamodei.com/)
+- [Hack your brain with powerlifting](https://www.youtube.com/watch?v=WxN9VzwoGGw)
+- 
