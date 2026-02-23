@@ -4,4 +4,4 @@
 - [NYC CNC](https://www.youtube.com/@nyccnc/videos)
 - [Guerrilla Guide to CNC](https://lcamtuf.coredump.cx/gcnc/ch6/)
 - [LShang882](https://www.youtube.com/@lshang882)
-- [Diffraction Limited](https://www.youtube.com/watch?v=NM2KXvRGmpg)
+- [Diffraction Limited - homemade tooling is very cool in this video](https://www.youtube.com/watch?v=NM2KXvRGmpg)
