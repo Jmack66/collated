@@ -16,3 +16,4 @@
 - [Horses Merch](https://horses.land/en-gbp)
 - [GxAce](https://www.youtube.com/@GxAce)
 - [Matthew Lim](https://www.youtube.com/channel/UC_ZOcNEBK87kdK88yMzdxXw)
+- [The Desingers Republic](https://www.thedesignersrepublic.com/)
