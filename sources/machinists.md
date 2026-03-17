@@ -5,3 +5,5 @@
 - [Guerrilla Guide to CNC](https://lcamtuf.coredump.cx/gcnc/ch6/)
 - [LShang882](https://www.youtube.com/@lshang882)
 - [Diffraction Limited - homemade tooling is very cool in this video](https://www.youtube.com/watch?v=NM2KXvRGmpg)
+- [Johnny Q90 - Tiny machined RC Engines](https://www.youtube.com/@johnnyq90)
+- [Abom big dog](https://www.youtube.com/@Abom79)

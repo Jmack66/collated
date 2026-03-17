@@ -7,8 +7,11 @@
     --accent-aesthetics: #1e90ff;
     --accent-software: #a55eea;
     --accent-opinions-lifestyle: #ff6b81;
-    --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    --font-mono: 'Menlo', 'Monaco', 'Courier New', monospace;
+    --accent-agriculture-solarpunk: #00b894;
+    --accent-research: #f39c12;
+    --accent-film-inspiration: #8e44ad;
+    --font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-mono: "Menlo", "Monaco", "Courier New", monospace;
 }
 
 * {
@@ -94,6 +97,18 @@ section {
 
 .cat-opinions-lifestyle .category-marker {
     background-color: var(--accent-opinions-lifestyle);
+}
+
+.cat-agriculture-solarpunk .category-marker {
+    background-color: var(--accent-agriculture-solarpunk);
+}
+
+.cat-research .category-marker {
+    background-color: var(--accent-research);
+}
+
+.cat-film-inspiration .category-marker {
+    background-color: var(--accent-film-inspiration);
 }
 
 h2 {
