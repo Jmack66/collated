@@ -1,6 +1,4 @@
 # Research
-
-- [arXiv](https://arxiv.org/)
-- [Google Scholar](https://scholar.google.com/)
-- [ResearchGate](https://www.researchgate.net/)
-- [PLOS ONE](https://journals.plos.org/plosone/)
+- [soiboi soft - microfluidics and softrobotics](https://www.youtube.com/@soiboisoft)
+- [Dr semiconductor](https://www.youtube.com/@Dr.Semiconductor)
+-

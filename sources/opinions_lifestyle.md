@@ -6,4 +6,4 @@
 - [Sorting Method For Home](https://www.youtube.com/watch?v=_SNiAdmA51Q)
 - [Anthropic CEO Blog Post](https://www.darioamodei.com/)
 - [Hack your brain with powerlifting](https://www.youtube.com/watch?v=WxN9VzwoGGw)
-- 
+- [Ben Jordan](https://www.youtube.com/@BennJordan)
