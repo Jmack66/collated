@@ -126,7 +126,6 @@ def build_html(all_links, all_unique_tags):
         "            padding: 1.2rem !important;",
         "            border: 1px solid #eaeaea !important;",
         "            border-radius: 12px;",
-        "            background: #fff;",
         "            transition: all 0.2s ease;",
         "            display: flex;",
         "            flex-direction: column;",
@@ -135,7 +134,6 @@ def build_html(all_links, all_unique_tags):
         "            color: inherit;",
         "        }",
         "        a.link-card:hover {",
-        "            background-color: #fff !important;",
         "            border-color: #ccc !important;",
         "            box-shadow: 0 4px 12px rgba(0,0,0,0.06);",
         "            transform: translateY(-2px);",
@@ -199,8 +197,20 @@ def build_html(all_links, all_unique_tags):
     # Build link cards
     for link in sorted(all_links, key=lambda x: x["title"].lower()):
         tags_str = ",".join(link["tags"])
+
+        # Generate a subtle background gradient based on the tags
+        card_colors = [get_tag_color(t) for t in link["tags"]]
+        if len(card_colors) == 1:
+            bg_style = f"background: linear-gradient(135deg, {card_colors[0]}22 0%, {card_colors[0]}05 100%);"
+        else:
+            stops = []
+            for i, c in enumerate(card_colors):
+                pct = int((i / (len(card_colors) - 1)) * 100)
+                stops.append(f"{c}22 {pct}%")
+            bg_style = f"background: linear-gradient(135deg, {', '.join(stops)});"
+
         html.append(
-            f'            <a href="{link["url"]}" target="_blank" class="link-card" data-tags="{tags_str}">'
+            f'            <a href="{link["url"]}" target="_blank" class="link-card" data-tags="{tags_str}" style="{bg_style}">'
         )
         html.append(f"                <div>")
         html.append(
