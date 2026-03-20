@@ -1,9 +1,9 @@
-- [Inheritance Machining](https://www.youtube.com/@InheritanceMachining)
-- [Chronova Engineering](https://www.youtube.com/@chronovaengineering)
+- [Inheritance Machining](https://www.youtube.com/@InheritanceMachining) #youtube #machining #maker
+- [Chronova Engineering](https://www.youtube.com/@chronovaengineering) #youtube #machining #engineering
 - [This Old Tony](https://www.youtube.com/@ThisOldTony)
 - [NYC CNC](https://www.youtube.com/@nyccnc/videos)
-- [Guerrilla Guide to CNC](https://lcamtuf.coredump.cx/gcnc/ch6/)
-- [LShang882](https://www.youtube.com/@lshang882)
-- [Diffraction Limited - homemade tooling is very cool in this video](https://www.youtube.com/watch?v=NM2KXvRGmpg)
-- [Johnny Q90 - Tiny machined RC Engines](https://www.youtube.com/@johnnyq90)
-- [Abom big dog](https://www.youtube.com/@Abom79)
+- [Guerrilla Guide to CNC](https://lcamtuf.coredump.cx/gcnc/ch6/) #guide #reading #cnc
+- [LShang882](https://www.youtube.com/@lshang882) #youtube #machining
+- [Diffraction Limited - homemade tooling is very cool in this video](https://www.youtube.com/watch?v=NM2KXvRGmpg) #youtube #machining #tooling
+- [Johnny Q90 - Tiny machined RC Engines](https://www.youtube.com/@johnnyq90) #youtube #rc #miniature #machining
+- [Abom big dog](https://www.youtube.com/@Abom79) #youtube #machining #heavy_machining

@@ -5,384 +5,873 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inspiration Sources</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Notion-style Tags & Grid Additions */
+        .filter-section { margin-bottom: 2rem; }
+        .filter-title { font-size: 0.9rem; margin-bottom: 0.8rem; font-family: var(--font-mono, monospace); color: #888; text-transform: uppercase; letter-spacing: 0.05em; }
+        .tag-filters { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .tag-btn {
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            border: 1px solid #eaeaea;
+            background: #fafafa;
+            font-size: 0.8rem;
+            font-family: var(--font-mono, monospace);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #555;
+            outline: none;
+        }
+        .tag-btn:hover { background: #f0f0f0; border-color: #ccc; }
+        .tag-btn.active {
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            font-weight: bold;
+        }
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            list-style: none;
+            padding: 0;
+        }
+        /* Overrides for existing generic 'a' styles in styles.css */
+        a.link-card {
+            padding: 1.2rem !important;
+            border: 1px solid #eaeaea !important;
+            border-radius: 12px;
+            background: #fff;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            text-decoration: none;
+            color: inherit;
+        }
+        a.link-card:hover {
+            background-color: #fff !important;
+            border-color: #ccc !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            transform: translateY(-2px);
+        }
+        .link-card .source-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: block;
+            color: var(--text-color, #111);
+        }
+        .link-card .source-url {
+            font-size: 0.8rem;
+            color: #888;
+            font-family: var(--font-mono, monospace);
+            word-break: break-all;
+            display: block;
+            margin-top: 0.2rem;
+        }
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: auto;
+            padding-top: 0.5rem;
+        }
+        .card-tag {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            color: #fff;
+            font-family: var(--font-mono, monospace);
+            font-weight: 500;
+        }
+        .hidden { display: none !important; }
+    </style>
 </head>
 <body>
     <header>
         <h1>Sources</h1>
-        <p class="intro">A curated list of makers, machinists, and aesthetic inspiration.</p>
+        <p class="intro">A curated, filterable list of makers, machinists, and aesthetic inspiration.</p>
     </header>
-
     <main>
-        <!-- Category: Machinists -->
-        <section class="cat-machinists">
-            <div class="category-header">
-                <span class="category-marker"></span>
-                <h2>Machinists</h2>
+        <section class="filter-section">
+            <div class="filter-title">Filter Tags</div>
+            <div class="tag-filters" id="tag-filters">
+                <button class="tag-btn" data-tag="3d_printing" style="--active-bg: #feca57;">3D Printing</button>
+                <button class="tag-btn" data-tag="aesthetics" style="--active-bg: #1e90ff;">Aesthetics</button>
+                <button class="tag-btn" data-tag="agriculture_solarpunk" style="--active-bg: #00b894;">Agriculture Solarpunk</button>
+                <button class="tag-btn" data-tag="architecture" style="--active-bg: #48dbfb;">Architecture</button>
+                <button class="tag-btn" data-tag="art" style="--active-bg: #ff9a9e;">Art</button>
+                <button class="tag-btn" data-tag="cars" style="--active-bg: #feca57;">Cars</button>
+                <button class="tag-btn" data-tag="cnc" style="--active-bg: #1dd1a1;">Cnc</button>
+                <button class="tag-btn" data-tag="comedy" style="--active-bg: #feca57;">Comedy</button>
+                <button class="tag-btn" data-tag="design" style="--active-bg: #ff6b6b;">Design</button>
+                <button class="tag-btn" data-tag="diorama" style="--active-bg: #5f27cd;">Diorama</button>
+                <button class="tag-btn" data-tag="electronics" style="--active-bg: #ffa502;">Electronics</button>
+                <button class="tag-btn" data-tag="engineering" style="--active-bg: #48dbfb;">Engineering</button>
+                <button class="tag-btn" data-tag="fabrication" style="--active-bg: #ff6b6b;">Fabrication</button>
+                <button class="tag-btn" data-tag="film_inspiration" style="--active-bg: #8e44ad;">Film Inspiration</button>
+                <button class="tag-btn" data-tag="filmmaking" style="--active-bg: #ff9a9e;">Filmmaking</button>
+                <button class="tag-btn" data-tag="guide" style="--active-bg: #c8d6e5;">Guide</button>
+                <button class="tag-btn" data-tag="heavy_machining" style="--active-bg: #ff6b6b;">Heavy Machining</button>
+                <button class="tag-btn" data-tag="machining" style="--active-bg: #c8d6e5;">Machining</button>
+                <button class="tag-btn" data-tag="machinists" style="--active-bg: #2ed573;">Machinists</button>
+                <button class="tag-btn" data-tag="mad_science" style="--active-bg: #48dbfb;">Mad Science</button>
+                <button class="tag-btn" data-tag="maker" style="--active-bg: #ff9ff3;">Maker</button>
+                <button class="tag-btn" data-tag="miniature" style="--active-bg: #c8d6e5;">Miniature</button>
+                <button class="tag-btn" data-tag="minimalism" style="--active-bg: #ff9ff3;">Minimalism</button>
+                <button class="tag-btn" data-tag="opinions_lifestyle" style="--active-bg: #ff6b81;">Opinions Lifestyle</button>
+                <button class="tag-btn" data-tag="productivity" style="--active-bg: #c8d6e5;">Productivity</button>
+                <button class="tag-btn" data-tag="props" style="--active-bg: #1dd1a1;">Props</button>
+                <button class="tag-btn" data-tag="rc" style="--active-bg: #5f27cd;">Rc</button>
+                <button class="tag-btn" data-tag="reading" style="--active-bg: #ff6b6b;">Reading</button>
+                <button class="tag-btn" data-tag="repair" style="--active-bg: #48dbfb;">Repair</button>
+                <button class="tag-btn" data-tag="research" style="--active-bg: #f39c12;">Research</button>
+                <button class="tag-btn" data-tag="restoration" style="--active-bg: #ff6b6b;">Restoration</button>
+                <button class="tag-btn" data-tag="scavenging" style="--active-bg: #5f27cd;">Scavenging</button>
+                <button class="tag-btn" data-tag="software" style="--active-bg: #a55eea;">Software</button>
+                <button class="tag-btn" data-tag="sound_art" style="--active-bg: #ff9a9e;">Sound Art</button>
+                <button class="tag-btn" data-tag="teardown" style="--active-bg: #1dd1a1;">Teardown</button>
+                <button class="tag-btn" data-tag="tooling" style="--active-bg: #1dd1a1;">Tooling</button>
+                <button class="tag-btn" data-tag="tools" style="--active-bg: #feca57;">Tools</button>
+                <button class="tag-btn" data-tag="vehicles" style="--active-bg: #48dbfb;">Vehicles</button>
+                <button class="tag-btn" data-tag="workshop" style="--active-bg: #ff4757;">Workshop</button>
+                <button class="tag-btn" data-tag="workspace" style="--active-bg: #ff9a9e;">Workspace</button>
+                <button class="tag-btn" data-tag="youtube" style="--active-bg: #5f27cd;">Youtube</button>
             </div>
-            <ul>
-                <li><a href="https://www.youtube.com/@InheritanceMachining" target="_blank">
-                    <span class="source-name">Inheritance Machining</span>
-                    <span class="source-url">youtube.com/@InheritanceMachining</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/@chronovaengineering" target="_blank">
-                    <span class="source-name">Chronova Engineering</span>
-                    <span class="source-url">youtube.com/@chronovaengineering</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/@ThisOldTony" target="_blank">
-                    <span class="source-name">This Old Tony</span>
-                    <span class="source-url">youtube.com/@ThisOldTony</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/@nyccnc/videos" target="_blank">
-                    <span class="source-name">NYC CNC</span>
-                    <span class="source-url">youtube.com/@nyccnc/videos</span>
-                </a></li>
-                <li><a href="https://lcamtuf.coredump.cx/gcnc/ch6/" target="_blank">
-                    <span class="source-name">Guerrilla Guide to CNC</span>
-                    <span class="source-url">lcamtuf.coredump.cx/gcnc/ch6</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/@lshang882" target="_blank">
-                    <span class="source-name">LShang882</span>
-                    <span class="source-url">youtube.com/@lshang882</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/watch?v=NM2KXvRGmpg" target="_blank">
-                    <span class="source-name">Diffraction Limited - homemade tooling is very cool in this video</span>
-                    <span class="source-url">youtube.com/watch?v=NM2KXvRGmpg</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/@johnnyq90" target="_blank">
-                    <span class="source-name">Johnny Q90 - Tiny machined RC Engines</span>
-                    <span class="source-url">youtube.com/@johnnyq90</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/@Abom79" target="_blank">
+        </section>
+        <div class="links-grid" id="links-grid">
+            <a href="https://www.youtube.com/@Abom79" target="_blank" class="link-card" data-tags="heavy_machining,machining,machinists,youtube">
+                <div>
                     <span class="source-name">Abom big dog</span>
                     <span class="source-url">youtube.com/@Abom79</span>
-                </a></li>
-            </ul>
-        </section>
-
-        <!-- Category: Electronics -->
-        <section class="cat-electronics">
-            <div class="category-header">
-                <span class="category-marker"></span>
-                <h2>Electronics</h2>
-            </div>
-            <ul>
-                <li><a href="https://www.youtube.com/@SeanHodgins" target="_blank">
-                    <span class="source-name">Sean Hodgins</span>
-                    <span class="source-url">youtube.com/@SeanHodgins</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/@mitxela" target="_blank">
-                    <span class="source-name">Mitxela</span>
-                    <span class="source-url">youtube.com/@mitxela</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/@%E7%A8%9A%E6%99%96%E5%90%9B" target="_blank">
-                    <span class="source-name">Pengzhihui (稚暉君)</span>
-                    <span class="source-url">youtube.com/@%E7%A8%9A%E6%99%96%E5%90%9B</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/@batchresearchlab/videos" target="_blank">
-                    <span class="source-name">Batch Research Lab</span>
-                    <span class="source-url">youtube.com/@batchresearchlab/videos</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/@HTXStudio" target="_blank">
-                    <span class="source-name">HTX Studio</span>
-                    <span class="source-url">youtube.com/@HTXStudio</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/@DiffractionLimited" target="_blank">
-                    <span class="source-name">Diffraction Limited</span>
-                    <span class="source-url">youtube.com/@DiffractionLimited</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/watch?v=qvWpAI78qW4" target="_blank">
-                    <span class="source-name">Tiny Video Recorder</span>
-                    <span class="source-url">youtube.com/watch?v=qvWpAI78qW4</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/watch?v=6wBrOV2FJM8" target="_blank">
-                    <span class="source-name">Computer in a Brick</span>
-                    <span class="source-url">youtube.com/watch?v=6wBrOV2FJM8</span>
-                </a></li>
-            </ul>
-        </section>
-
-        <!-- Category: Workshop & Builds -->
-        <section class="cat-workshop">
-            <div class="category-header">
-                <span class="category-marker"></span>
-                <h2>Workshop & Builds</h2>
-            </div>
-            <ul>
-                <li><a href="https://www.youtube.com/@tested" target="_blank">
-                    <span class="source-name">Adam Savage’s Tested</span>
-                    <span class="source-url">youtube.com/@tested</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/@bobbyfingers/videos" target="_blank">
-                    <span class="source-name">Bobby Fingers</span>
-                    <span class="source-url">youtube.com/@bobbyfingers/videos</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/@arduinoversusevil2025" target="_blank">
-                    <span class="source-name">AvE</span>
-                    <span class="source-url">youtube.com/@arduinoversusevil2025</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/@brungerbuilds/videos" target="_blank">
-                    <span class="source-name">Brunger Builds</span>
-                    <span class="source-url">youtube.com/@brungerbuilds/videos</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/@NoEngineerHere" target="_blank">
-                    <span class="source-name">No Engineer Here</span>
-                    <span class="source-url">youtube.com/@NoEngineerHere</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/@reps" target="_blank">
-                    <span class="source-name">Reps</span>
-                    <span class="source-url">youtube.com/@reps</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/@EirikBrandalf/videos" target="_blank">
-                    <span class="source-name">Eirik Brandal</span>
-                    <span class="source-url">youtube.com/@EirikBrandalf/videos</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/watch?v=1FiaFoEp4us" target="_blank">
-                    <span class="source-name">Shipping Container Shop</span>
-                    <span class="source-url">youtube.com/watch?v=1FiaFoEp4us</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/watch?v=PLJ24dAL-z4" target="_blank">
-                    <span class="source-name">Cyberpunk Miata</span>
-                    <span class="source-url">youtube.com/watch?v=PLJ24dAL-z4</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/channel/UC5mPJA4y5G8Z6aNkY6AxgAw" target="_blank">
-                    <span class="source-name">Van Neistat</span>
-                    <span class="source-url">youtube.com/channel/UC5mPJA4y5G8Z6aNkY6AxgAw</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/channel/UCAbAsEZ-0LccTNbl8r-3EaQ" target="_blank">
-                    <span class="source-name">Scott Yu-Jan</span>
-                    <span class="source-url">youtube.com/channel/UCAbAsEZ-0LccTNbl8r-3EaQ</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/channel/UCSLeoz5odIGS2GdlbHbCAUg" target="_blank">
-                    <span class="source-name">Matthew Encina</span>
-                    <span class="source-url">youtube.com/channel/UCSLeoz5odIGS2GdlbHbCAUg</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/channel/UCf2hu_ciyJ3NsikmcChTDnw" target="_blank">
-                    <span class="source-name">TLS Garage</span>
-                    <span class="source-url">youtube.com/channel/UCf2hu_ciyJ3NsikmcChTDnw</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/@saveitforparts" target="_blank">
-                    <span class="source-name">Save it For Parts</span>
-                    <span class="source-url">youtube.com/@saveitforparts</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/@mightycarmods" target="_blank">
-                    <span class="source-name">Mighty Car Mods</span>
-                    <span class="source-url">youtube.com/@mightycarmods</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/watch?v=Ub9gJEZW0QI" target="_blank">
-                    <span class="source-name">Hey H*ntai Car</span>
-                    <span class="source-url">youtube.com/watch?v=Ub9gJEZW0QI</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/@colinfurze" target="_blank">
-                    <span class="source-name">Colin Furze!!!</span>
-                    <span class="source-url">youtube.com/@colinfurze</span>
-                </a></li>
-            </ul>
-        </section>
-
-        <!-- Category: Aesthetics & Design -->
-        <section class="cat-aesthetics">
-            <div class="category-header">
-                <span class="category-marker"></span>
-                <h2>Aesthetics & Design</h2>
-            </div>
-            <ul>
-                <li><a href="https://n-o-d-e.net/" target="_blank">
-                    <span class="source-name">N-O-D-E</span>
-                    <span class="source-url">n-o-d-e.net</span>
-                </a></li>
-                <li><a href="https://cwandt.com/" target="_blank">
-                    <span class="source-name">CW&T</span>
-                    <span class="source-url">cwandt.com</span>
-                </a></li>
-                <li><a href="https://studiofreight.com/" target="_blank">
-                    <span class="source-name">Studio Freight</span>
-                    <span class="source-url">studiofreight.com</span>
-                </a></li>
-                <li><a href="https://www.zarki.net/" target="_blank">
-                    <span class="source-name">Zarki</span>
-                    <span class="source-url">zarki.net</span>
-                </a></li>
-                <li><a href="https://space10.com/" target="_blank">
-                    <span class="source-name">SPACE10</span>
-                    <span class="source-url">space10.com</span>
-                </a></li>
-                <li><a href="https://nothing.tech/" target="_blank">
-                    <span class="source-name">Nothing</span>
-                    <span class="source-url">nothing.tech</span>
-                </a></li>
-                <li><a href="https://www.tomsachs.com/" target="_blank">
-                    <span class="source-name">Tom Sachs</span>
-                    <span class="source-url">tomsachs.com</span>
-                </a></li>
-                <li><a href="https://pivosoki.com/work" target="_blank">
-                    <span class="source-name">Pivosoki</span>
-                    <span class="source-url">pivosoki.com/work</span>
-                </a></li>
-                <li><a href="https://fellowproducts.com/" target="_blank">
-                    <span class="source-name">Fellow</span>
-                    <span class="source-url">fellowproducts.com</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/oliur" target="_blank">
-                    <span class="source-name">Oliur</span>
-                    <span class="source-url">youtube.com/oliur</span>
-                </a></li>
-                <li><a href="https://www.trenchcrusade.com/lore/" target="_blank">
-                    <span class="source-name">Trench Crusade</span>
-                    <span class="source-url">trenchcrusade.com/lore</span>
-                </a></li>
-                <li><a href="https://teenage.engineering/" target="_blank">
-                    <span class="source-name">Teenage Engineering</span>
-                    <span class="source-url">teenage.engineering</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/channel/UC1eXD38PuOCSJiiH_xA3R_Q" target="_blank">
-                    <span class="source-name">Paul Chadeisson</span>
-                    <span class="source-url">youtube.com/channel/UC1eXD38PuOCSJiiH_xA3R_Q</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/watch?v=bm0nLJuRNbw" target="_blank">
-                    <span class="source-name">Piplup Step Animation</span>
-                    <span class="source-url">youtube.com/watch?v=bm0nLJuRNbw</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/watch?v=6MucREx-e4Q" target="_blank">
-                    <span class="source-name">Justice - IRIS</span>
-                    <span class="source-url">youtube.com/watch?v=6MucREx-e4Q</span>
-                </a></li>
-                <li><a href="https://horses.land/en-gbp" target="_blank">
-                    <span class="source-name">Horses Merch</span>
-                    <span class="source-url">horses.land/en-gbp</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/@GxAce" target="_blank">
-                    <span class="source-name">GxAce</span>
-                    <span class="source-url">youtube.com/@GxAce</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/channel/UC_ZOcNEBK87kdK88yMzdxXw" target="_blank">
-                    <span class="source-name">Matthew Lim</span>
-                    <span class="source-url">youtube.com/channel/UC_ZOcNEBK87kdK88yMzdxXw</span>
-                </a></li>
-            </ul>
-        </section>
-
-        <!-- Category: Software & Tech -->
-        <section class="cat-software">
-            <div class="category-header">
-                <span class="category-marker"></span>
-                <h2>Software & Tech</h2>
-            </div>
-            <ul>
-                <li><a href="https://www.youtube.com/@DavesGarage" target="_blank">
-                    <span class="source-name">Dave's Garage</span>
-                    <span class="source-url">youtube.com/@DavesGarage</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/@alt-c/videos" target="_blank">
-                    <span class="source-name">Alt-C</span>
-                    <span class="source-url">youtube.com/@alt-c/videos</span>
-                </a></li>
-            </ul>
-        </section>
-
-        <!-- Category: Opinions and Lifestyle -->
-        <section class="cat-opinions-lifestyle">
-            <div class="category-header">
-                <span class="category-marker"></span>
-                <h2>Opinions and Lifestyle</h2>
-            </div>
-            <ul>
-                <li><a href="https://geohot.github.io/blog/" target="_blank">
-                    <span class="source-name">George Hotz (Geohot)</span>
-                    <span class="source-url">geohot.github.io/blog</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/watch?v=RUePwWspKHI" target="_blank">
-                    <span class="source-name">How to make life easy</span>
-                    <span class="source-url">youtube.com/watch?v=RUePwWspKHI</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/channel/UCHSU2msiHiOExWWdsIZ8omw" target="_blank">
-                    <span class="source-name">ArTorr</span>
-                    <span class="source-url">youtube.com/channel/UCHSU2msiHiOExWWdsIZ8omw</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/watch?v=Qil4OpfOufU" target="_blank">
-                    <span class="source-name">Pokemon Mystery</span>
-                    <span class="source-url">youtube.com/watch?v=Qil4OpfOufU</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/watch?v=mwyBMxad-vU" target="_blank">
-                    <span class="source-name">Dr. K's Meditation Guide</span>
-                    <span class="source-url">youtube.com/watch?v=mwyBMxad-vU</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/watch?v=_SNiAdmA51Q" target="_blank">
-                    <span class="source-name">Sorting Method For Home</span>
-                    <span class="source-url">youtube.com/watch?v=_SNiAdmA51Q</span>
-                </a></li>
-                <li><a href="https://www.darioamodei.com/" target="_blank">
-                    <span class="source-name">Anthropic CEO Blog Post</span>
-                    <span class="source-url">darioamodei.com</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/watch?v=WxN9VzwoGGw" target="_blank">
-                    <span class="source-name">Hack your brain with powerlifting</span>
-                    <span class="source-url">youtube.com/watch?v=WxN9VzwoGGw</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/@BennJordan" target="_blank">
-                    <span class="source-name">Ben Jordan</span>
-                    <span class="source-url">youtube.com/@BennJordan</span>
-                </a></li>
-            </ul>
-        </section>
-
-        <!-- Category: Agriculture & Solarpunk -->
-        <section class="cat-agriculture-solarpunk">
-            <div class="category-header">
-                <span class="category-marker"></span>
-                <h2>Agriculture & Solarpunk</h2>
-            </div>
-            <ul>
-                <li><a href="https://solar.lowtechmagazine.com/" target="_blank">
-                    <span class="source-name">Low-tech Magazine</span>
-                    <span class="source-url">solar.lowtechmagazine.com</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/@AcornLandLabs/videos" target="_blank">
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ff6b6b;">Heavy Machining</span>
+                    <span class="card-tag" style="background-color: #c8d6e5;">Machining</span>
+                    <span class="card-tag" style="background-color: #2ed573;">Machinists</span>
+                    <span class="card-tag" style="background-color: #5f27cd;">Youtube</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@AcornLandLabs/videos" target="_blank" class="link-card" data-tags="agriculture_solarpunk">
+                <div>
                     <span class="source-name">Acorn Land Labs</span>
                     <span class="source-url">youtube.com/@AcornLandLabs/videos</span>
-                </a></li>
-                <li><a href="https://youtu.be/_20LePuDHJo" target="_blank">
-                    <span class="source-name">Small Garden</span>
-                    <span class="source-url">youtu.be/_20LePuDHJo</span>
-                </a></li>
-            </ul>
-        </section>
-
-        <!-- Category: Research -->
-        <section class="cat-research">
-            <div class="category-header">
-                <span class="category-marker"></span>
-                <h2>Research</h2>
-            </div>
-            <ul>
-                <li><a href="https://www.youtube.com/@soiboisoft" target="_blank">
-                    <span class="source-name">soiboi soft - microfluidics and softrobotics</span>
-                    <span class="source-url">youtube.com/@soiboisoft</span>
-                </a></li>
-                <li><a href="https://www.youtube.com/@Dr.Semiconductor" target="_blank">
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #00b894;">Agriculture Solarpunk</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@tested" target="_blank" class="link-card" data-tags="fabrication,maker,props,workshop">
+                <div>
+                    <span class="source-name">Adam Savage’s Tested</span>
+                    <span class="source-url">youtube.com/@tested</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ff6b6b;">Fabrication</span>
+                    <span class="card-tag" style="background-color: #ff9ff3;">Maker</span>
+                    <span class="card-tag" style="background-color: #1dd1a1;">Props</span>
+                    <span class="card-tag" style="background-color: #ff4757;">Workshop</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@alt-c/videos" target="_blank" class="link-card" data-tags="software">
+                <div>
+                    <span class="source-name">Alt-C</span>
+                    <span class="source-url">youtube.com/@alt-c/videos</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #a55eea;">Software</span>
+                </div>
+            </a>
+            <a href="https://www.darioamodei.com/" target="_blank" class="link-card" data-tags="opinions_lifestyle">
+                <div>
+                    <span class="source-name">Anthropic CEO Blog Post</span>
+                    <span class="source-url">darioamodei.com</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ff6b81;">Opinions Lifestyle</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/channel/UCHSU2msiHiOExWWdsIZ8omw" target="_blank" class="link-card" data-tags="opinions_lifestyle">
+                <div>
+                    <span class="source-name">ArTorr</span>
+                    <span class="source-url">youtube.com/channel/UCHSU2msiHiOExWWdsIZ8omw</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ff6b81;">Opinions Lifestyle</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@arduinoversusevil2025" target="_blank" class="link-card" data-tags="comedy,teardown,tools,workshop">
+                <div>
+                    <span class="source-name">AvE</span>
+                    <span class="source-url">youtube.com/@arduinoversusevil2025</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #feca57;">Comedy</span>
+                    <span class="card-tag" style="background-color: #1dd1a1;">Teardown</span>
+                    <span class="card-tag" style="background-color: #feca57;">Tools</span>
+                    <span class="card-tag" style="background-color: #ff4757;">Workshop</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@batchresearchlab/videos" target="_blank" class="link-card" data-tags="electronics">
+                <div>
+                    <span class="source-name">Batch Research Lab</span>
+                    <span class="source-url">youtube.com/@batchresearchlab/videos</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ffa502;">Electronics</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@BennJordan" target="_blank" class="link-card" data-tags="opinions_lifestyle">
+                <div>
+                    <span class="source-name">Ben Jordan</span>
+                    <span class="source-url">youtube.com/@BennJordan</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ff6b81;">Opinions Lifestyle</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@bobbyfingers/videos" target="_blank" class="link-card" data-tags="art,comedy,diorama,workshop">
+                <div>
+                    <span class="source-name">Bobby Fingers</span>
+                    <span class="source-url">youtube.com/@bobbyfingers/videos</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ff9a9e;">Art</span>
+                    <span class="card-tag" style="background-color: #feca57;">Comedy</span>
+                    <span class="card-tag" style="background-color: #5f27cd;">Diorama</span>
+                    <span class="card-tag" style="background-color: #ff4757;">Workshop</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@brungerbuilds/videos" target="_blank" class="link-card" data-tags="fabrication,vehicles,workshop">
+                <div>
+                    <span class="source-name">Brunger Builds</span>
+                    <span class="source-url">youtube.com/@brungerbuilds/videos</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ff6b6b;">Fabrication</span>
+                    <span class="card-tag" style="background-color: #48dbfb;">Vehicles</span>
+                    <span class="card-tag" style="background-color: #ff4757;">Workshop</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@chronovaengineering" target="_blank" class="link-card" data-tags="engineering,machining,machinists,youtube">
+                <div>
+                    <span class="source-name">Chronova Engineering</span>
+                    <span class="source-url">youtube.com/@chronovaengineering</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #48dbfb;">Engineering</span>
+                    <span class="card-tag" style="background-color: #c8d6e5;">Machining</span>
+                    <span class="card-tag" style="background-color: #2ed573;">Machinists</span>
+                    <span class="card-tag" style="background-color: #5f27cd;">Youtube</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@colinfurze" target="_blank" class="link-card" data-tags="fabrication,mad_science,maker,workshop">
+                <div>
+                    <span class="source-name">Colin Furze!!!</span>
+                    <span class="source-url">youtube.com/@colinfurze</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ff6b6b;">Fabrication</span>
+                    <span class="card-tag" style="background-color: #48dbfb;">Mad Science</span>
+                    <span class="card-tag" style="background-color: #ff9ff3;">Maker</span>
+                    <span class="card-tag" style="background-color: #ff4757;">Workshop</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=6wBrOV2FJM8" target="_blank" class="link-card" data-tags="electronics">
+                <div>
+                    <span class="source-name">Computer in a Brick</span>
+                    <span class="source-url">youtube.com/watch?v=6wBrOV2FJM8</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ffa502;">Electronics</span>
+                </div>
+            </a>
+            <a href="https://cwandt.com/" target="_blank" class="link-card" data-tags="aesthetics">
+                <div>
+                    <span class="source-name">CW&T</span>
+                    <span class="source-url">cwandt.com</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #1e90ff;">Aesthetics</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=PLJ24dAL-z4" target="_blank" class="link-card" data-tags="cars,fabrication,workshop">
+                <div>
+                    <span class="source-name">Cyberpunk Miata</span>
+                    <span class="source-url">youtube.com/watch?v=PLJ24dAL-z4</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #feca57;">Cars</span>
+                    <span class="card-tag" style="background-color: #ff6b6b;">Fabrication</span>
+                    <span class="card-tag" style="background-color: #ff4757;">Workshop</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@DavesGarage" target="_blank" class="link-card" data-tags="software">
+                <div>
+                    <span class="source-name">Dave's Garage</span>
+                    <span class="source-url">youtube.com/@DavesGarage</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #a55eea;">Software</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@DiffractionLimited" target="_blank" class="link-card" data-tags="electronics">
+                <div>
+                    <span class="source-name">Diffraction Limited</span>
+                    <span class="source-url">youtube.com/@DiffractionLimited</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ffa502;">Electronics</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=NM2KXvRGmpg" target="_blank" class="link-card" data-tags="machining,machinists,tooling,youtube">
+                <div>
+                    <span class="source-name">Diffraction Limited - homemade tooling is very cool in this video</span>
+                    <span class="source-url">youtube.com/watch?v=NM2KXvRGmpg</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #c8d6e5;">Machining</span>
+                    <span class="card-tag" style="background-color: #2ed573;">Machinists</span>
+                    <span class="card-tag" style="background-color: #1dd1a1;">Tooling</span>
+                    <span class="card-tag" style="background-color: #5f27cd;">Youtube</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@Dr.Semiconductor" target="_blank" class="link-card" data-tags="research">
+                <div>
                     <span class="source-name">Dr semiconductor</span>
                     <span class="source-url">youtube.com/@Dr.Semiconductor</span>
-                </a></li>
-            </ul>
-        </section>
-
-        <!-- Category: Film Inspiration -->
-        <section class="cat-film-inspiration">
-            <div class="category-header">
-                <span class="category-marker"></span>
-                <h2>Film Inspiration</h2>
-            </div>
-            <ul>
-                <li><a href="https://www.youtube.com/watch?v=EugvuYUe23A" target="_blank">
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #f39c12;">Research</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=mwyBMxad-vU" target="_blank" class="link-card" data-tags="opinions_lifestyle">
+                <div>
+                    <span class="source-name">Dr. K's Meditation Guide</span>
+                    <span class="source-url">youtube.com/watch?v=mwyBMxad-vU</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ff6b81;">Opinions Lifestyle</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@EirikBrandalf/videos" target="_blank" class="link-card" data-tags="electronics,sound_art,workshop">
+                <div>
+                    <span class="source-name">Eirik Brandal</span>
+                    <span class="source-url">youtube.com/@EirikBrandalf/videos</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ffa502;">Electronics</span>
+                    <span class="card-tag" style="background-color: #ff9a9e;">Sound Art</span>
+                    <span class="card-tag" style="background-color: #ff4757;">Workshop</span>
+                </div>
+            </a>
+            <a href="https://fellowproducts.com/" target="_blank" class="link-card" data-tags="aesthetics">
+                <div>
+                    <span class="source-name">Fellow</span>
+                    <span class="source-url">fellowproducts.com</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #1e90ff;">Aesthetics</span>
+                </div>
+            </a>
+            <a href="https://geohot.github.io/blog/" target="_blank" class="link-card" data-tags="opinions_lifestyle">
+                <div>
+                    <span class="source-name">George Hotz (Geohot)</span>
+                    <span class="source-url">geohot.github.io/blog</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ff6b81;">Opinions Lifestyle</span>
+                </div>
+            </a>
+            <a href="https://lcamtuf.coredump.cx/gcnc/ch6/" target="_blank" class="link-card" data-tags="cnc,guide,machinists,reading">
+                <div>
+                    <span class="source-name">Guerrilla Guide to CNC</span>
+                    <span class="source-url">lcamtuf.coredump.cx/gcnc/ch6</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #1dd1a1;">Cnc</span>
+                    <span class="card-tag" style="background-color: #c8d6e5;">Guide</span>
+                    <span class="card-tag" style="background-color: #2ed573;">Machinists</span>
+                    <span class="card-tag" style="background-color: #ff6b6b;">Reading</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@GxAce" target="_blank" class="link-card" data-tags="aesthetics">
+                <div>
+                    <span class="source-name">GxAce</span>
+                    <span class="source-url">youtube.com/@GxAce</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #1e90ff;">Aesthetics</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=WxN9VzwoGGw" target="_blank" class="link-card" data-tags="opinions_lifestyle">
+                <div>
+                    <span class="source-name">Hack your brain with powerlifting</span>
+                    <span class="source-url">youtube.com/watch?v=WxN9VzwoGGw</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ff6b81;">Opinions Lifestyle</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=Ub9gJEZW0QI" target="_blank" class="link-card" data-tags="cars,comedy,fabrication,workshop">
+                <div>
+                    <span class="source-name">Hey H*ntai Car</span>
+                    <span class="source-url">youtube.com/watch?v=Ub9gJEZW0QI</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #feca57;">Cars</span>
+                    <span class="card-tag" style="background-color: #feca57;">Comedy</span>
+                    <span class="card-tag" style="background-color: #ff6b6b;">Fabrication</span>
+                    <span class="card-tag" style="background-color: #ff4757;">Workshop</span>
+                </div>
+            </a>
+            <a href="https://horses.land/en-gbp" target="_blank" class="link-card" data-tags="aesthetics">
+                <div>
+                    <span class="source-name">Horses Merch</span>
+                    <span class="source-url">horses.land/en-gbp</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #1e90ff;">Aesthetics</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=RUePwWspKHI" target="_blank" class="link-card" data-tags="opinions_lifestyle">
+                <div>
+                    <span class="source-name">How to make life easy</span>
+                    <span class="source-url">youtube.com/watch?v=RUePwWspKHI</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ff6b81;">Opinions Lifestyle</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@HTXStudio" target="_blank" class="link-card" data-tags="electronics">
+                <div>
+                    <span class="source-name">HTX Studio</span>
+                    <span class="source-url">youtube.com/@HTXStudio</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ffa502;">Electronics</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@InheritanceMachining" target="_blank" class="link-card" data-tags="machining,machinists,maker,youtube">
+                <div>
+                    <span class="source-name">Inheritance Machining</span>
+                    <span class="source-url">youtube.com/@InheritanceMachining</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #c8d6e5;">Machining</span>
+                    <span class="card-tag" style="background-color: #2ed573;">Machinists</span>
+                    <span class="card-tag" style="background-color: #ff9ff3;">Maker</span>
+                    <span class="card-tag" style="background-color: #5f27cd;">Youtube</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@johnnyq90" target="_blank" class="link-card" data-tags="machining,machinists,miniature,rc,youtube">
+                <div>
+                    <span class="source-name">Johnny Q90 - Tiny machined RC Engines</span>
+                    <span class="source-url">youtube.com/@johnnyq90</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #c8d6e5;">Machining</span>
+                    <span class="card-tag" style="background-color: #2ed573;">Machinists</span>
+                    <span class="card-tag" style="background-color: #c8d6e5;">Miniature</span>
+                    <span class="card-tag" style="background-color: #5f27cd;">Rc</span>
+                    <span class="card-tag" style="background-color: #5f27cd;">Youtube</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=6MucREx-e4Q" target="_blank" class="link-card" data-tags="aesthetics">
+                <div>
+                    <span class="source-name">Justice - IRIS</span>
+                    <span class="source-url">youtube.com/watch?v=6MucREx-e4Q</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #1e90ff;">Aesthetics</span>
+                </div>
+            </a>
+            <a href="https://solar.lowtechmagazine.com/" target="_blank" class="link-card" data-tags="agriculture_solarpunk">
+                <div>
+                    <span class="source-name">Low-tech Magazine</span>
+                    <span class="source-url">solar.lowtechmagazine.com</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #00b894;">Agriculture Solarpunk</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@lshang882" target="_blank" class="link-card" data-tags="machining,machinists,youtube">
+                <div>
+                    <span class="source-name">LShang882</span>
+                    <span class="source-url">youtube.com/@lshang882</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #c8d6e5;">Machining</span>
+                    <span class="card-tag" style="background-color: #2ed573;">Machinists</span>
+                    <span class="card-tag" style="background-color: #5f27cd;">Youtube</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/channel/UCSLeoz5odIGS2GdlbHbCAUg" target="_blank" class="link-card" data-tags="design,productivity,workshop,workspace">
+                <div>
+                    <span class="source-name">Matthew Encina</span>
+                    <span class="source-url">youtube.com/channel/UCSLeoz5odIGS2GdlbHbCAUg</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ff6b6b;">Design</span>
+                    <span class="card-tag" style="background-color: #c8d6e5;">Productivity</span>
+                    <span class="card-tag" style="background-color: #ff4757;">Workshop</span>
+                    <span class="card-tag" style="background-color: #ff9a9e;">Workspace</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/channel/UC_ZOcNEBK87kdK88yMzdxXw" target="_blank" class="link-card" data-tags="aesthetics">
+                <div>
+                    <span class="source-name">Matthew Lim</span>
+                    <span class="source-url">youtube.com/channel/UC_ZOcNEBK87kdK88yMzdxXw</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #1e90ff;">Aesthetics</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@mightycarmods" target="_blank" class="link-card" data-tags="cars,comedy,fabrication,workshop">
+                <div>
+                    <span class="source-name">Mighty Car Mods</span>
+                    <span class="source-url">youtube.com/@mightycarmods</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #feca57;">Cars</span>
+                    <span class="card-tag" style="background-color: #feca57;">Comedy</span>
+                    <span class="card-tag" style="background-color: #ff6b6b;">Fabrication</span>
+                    <span class="card-tag" style="background-color: #ff4757;">Workshop</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@mitxela" target="_blank" class="link-card" data-tags="electronics">
+                <div>
+                    <span class="source-name">Mitxela</span>
+                    <span class="source-url">youtube.com/@mitxela</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ffa502;">Electronics</span>
+                </div>
+            </a>
+            <a href="https://n-o-d-e.net/" target="_blank" class="link-card" data-tags="aesthetics">
+                <div>
+                    <span class="source-name">N-O-D-E</span>
+                    <span class="source-url">n-o-d-e.net</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #1e90ff;">Aesthetics</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@NoEngineerHere" target="_blank" class="link-card" data-tags="engineering,fabrication,workshop">
+                <div>
+                    <span class="source-name">No Engineer Here</span>
+                    <span class="source-url">youtube.com/@NoEngineerHere</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #48dbfb;">Engineering</span>
+                    <span class="card-tag" style="background-color: #ff6b6b;">Fabrication</span>
+                    <span class="card-tag" style="background-color: #ff4757;">Workshop</span>
+                </div>
+            </a>
+            <a href="https://nothing.tech/" target="_blank" class="link-card" data-tags="aesthetics">
+                <div>
+                    <span class="source-name">Nothing</span>
+                    <span class="source-url">nothing.tech</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #1e90ff;">Aesthetics</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@nyccnc/videos" target="_blank" class="link-card" data-tags="machinists">
+                <div>
+                    <span class="source-name">NYC CNC</span>
+                    <span class="source-url">youtube.com/@nyccnc/videos</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #2ed573;">Machinists</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/oliur" target="_blank" class="link-card" data-tags="aesthetics">
+                <div>
+                    <span class="source-name">Oliur</span>
+                    <span class="source-url">youtube.com/oliur</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #1e90ff;">Aesthetics</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/channel/UC1eXD38PuOCSJiiH_xA3R_Q" target="_blank" class="link-card" data-tags="aesthetics">
+                <div>
+                    <span class="source-name">Paul Chadeisson</span>
+                    <span class="source-url">youtube.com/channel/UC1eXD38PuOCSJiiH_xA3R_Q</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #1e90ff;">Aesthetics</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@%E7%A8%9A%E6%99%96%E5%90%9B" target="_blank" class="link-card" data-tags="electronics">
+                <div>
+                    <span class="source-name">Pengzhihui (稚暉君)</span>
+                    <span class="source-url">youtube.com/@%E7%A8%9A%E6%99%96%E5%90%9B</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ffa502;">Electronics</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=bm0nLJuRNbw" target="_blank" class="link-card" data-tags="aesthetics">
+                <div>
+                    <span class="source-name">Piplup Step Animation</span>
+                    <span class="source-url">youtube.com/watch?v=bm0nLJuRNbw</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #1e90ff;">Aesthetics</span>
+                </div>
+            </a>
+            <a href="https://pivosoki.com/work" target="_blank" class="link-card" data-tags="aesthetics">
+                <div>
+                    <span class="source-name">Pivosoki</span>
+                    <span class="source-url">pivosoki.com/work</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #1e90ff;">Aesthetics</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=Qil4OpfOufU" target="_blank" class="link-card" data-tags="opinions_lifestyle">
+                <div>
+                    <span class="source-name">Pokemon Mystery</span>
+                    <span class="source-url">youtube.com/watch?v=Qil4OpfOufU</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ff6b81;">Opinions Lifestyle</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@reps" target="_blank" class="link-card" data-tags="fabrication,maker,workshop">
+                <div>
+                    <span class="source-name">Reps</span>
+                    <span class="source-url">youtube.com/@reps</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ff6b6b;">Fabrication</span>
+                    <span class="card-tag" style="background-color: #ff9ff3;">Maker</span>
+                    <span class="card-tag" style="background-color: #ff4757;">Workshop</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@saveitforparts" target="_blank" class="link-card" data-tags="electronics,mad_science,scavenging,workshop">
+                <div>
+                    <span class="source-name">Save it For Parts</span>
+                    <span class="source-url">youtube.com/@saveitforparts</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ffa502;">Electronics</span>
+                    <span class="card-tag" style="background-color: #48dbfb;">Mad Science</span>
+                    <span class="card-tag" style="background-color: #5f27cd;">Scavenging</span>
+                    <span class="card-tag" style="background-color: #ff4757;">Workshop</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/channel/UCAbAsEZ-0LccTNbl8r-3EaQ" target="_blank" class="link-card" data-tags="3d_printing,design,minimalism,workshop">
+                <div>
+                    <span class="source-name">Scott Yu-Jan</span>
+                    <span class="source-url">youtube.com/channel/UCAbAsEZ-0LccTNbl8r-3EaQ</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #feca57;">3D Printing</span>
+                    <span class="card-tag" style="background-color: #ff6b6b;">Design</span>
+                    <span class="card-tag" style="background-color: #ff9ff3;">Minimalism</span>
+                    <span class="card-tag" style="background-color: #ff4757;">Workshop</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@SeanHodgins" target="_blank" class="link-card" data-tags="electronics">
+                <div>
+                    <span class="source-name">Sean Hodgins</span>
+                    <span class="source-url">youtube.com/@SeanHodgins</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ffa502;">Electronics</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=EugvuYUe23A" target="_blank" class="link-card" data-tags="film_inspiration">
+                <div>
                     <span class="source-name">Seven Driver</span>
                     <span class="source-url">youtube.com/watch?v=EugvuYUe23A</span>
-                </a></li>
-            </ul>
-        </section>
-
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #8e44ad;">Film Inspiration</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=1FiaFoEp4us" target="_blank" class="link-card" data-tags="architecture,workshop,workspace">
+                <div>
+                    <span class="source-name">Shipping Container Shop</span>
+                    <span class="source-url">youtube.com/watch?v=1FiaFoEp4us</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #48dbfb;">Architecture</span>
+                    <span class="card-tag" style="background-color: #ff4757;">Workshop</span>
+                    <span class="card-tag" style="background-color: #ff9a9e;">Workspace</span>
+                </div>
+            </a>
+            <a href="https://youtu.be/_20LePuDHJo" target="_blank" class="link-card" data-tags="agriculture_solarpunk">
+                <div>
+                    <span class="source-name">Small Garden</span>
+                    <span class="source-url">youtu.be/_20LePuDHJo</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #00b894;">Agriculture Solarpunk</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@soiboisoft" target="_blank" class="link-card" data-tags="research">
+                <div>
+                    <span class="source-name">soiboi soft - microfluidics and softrobotics</span>
+                    <span class="source-url">youtube.com/@soiboisoft</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #f39c12;">Research</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=_SNiAdmA51Q" target="_blank" class="link-card" data-tags="opinions_lifestyle">
+                <div>
+                    <span class="source-name">Sorting Method For Home</span>
+                    <span class="source-url">youtube.com/watch?v=_SNiAdmA51Q</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ff6b81;">Opinions Lifestyle</span>
+                </div>
+            </a>
+            <a href="https://space10.com/" target="_blank" class="link-card" data-tags="aesthetics">
+                <div>
+                    <span class="source-name">SPACE10</span>
+                    <span class="source-url">space10.com</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #1e90ff;">Aesthetics</span>
+                </div>
+            </a>
+            <a href="https://studiofreight.com/" target="_blank" class="link-card" data-tags="aesthetics">
+                <div>
+                    <span class="source-name">Studio Freight</span>
+                    <span class="source-url">studiofreight.com</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #1e90ff;">Aesthetics</span>
+                </div>
+            </a>
+            <a href="https://teenage.engineering/" target="_blank" class="link-card" data-tags="aesthetics">
+                <div>
+                    <span class="source-name">Teenage Engineering</span>
+                    <span class="source-url">teenage.engineering</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #1e90ff;">Aesthetics</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/@ThisOldTony" target="_blank" class="link-card" data-tags="machinists">
+                <div>
+                    <span class="source-name">This Old Tony</span>
+                    <span class="source-url">youtube.com/@ThisOldTony</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #2ed573;">Machinists</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=qvWpAI78qW4" target="_blank" class="link-card" data-tags="electronics">
+                <div>
+                    <span class="source-name">Tiny Video Recorder</span>
+                    <span class="source-url">youtube.com/watch?v=qvWpAI78qW4</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ffa502;">Electronics</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/channel/UCf2hu_ciyJ3NsikmcChTDnw" target="_blank" class="link-card" data-tags="cars,restoration,workshop">
+                <div>
+                    <span class="source-name">TLS Garage</span>
+                    <span class="source-url">youtube.com/channel/UCf2hu_ciyJ3NsikmcChTDnw</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #feca57;">Cars</span>
+                    <span class="card-tag" style="background-color: #ff6b6b;">Restoration</span>
+                    <span class="card-tag" style="background-color: #ff4757;">Workshop</span>
+                </div>
+            </a>
+            <a href="https://www.tomsachs.com/" target="_blank" class="link-card" data-tags="aesthetics">
+                <div>
+                    <span class="source-name">Tom Sachs</span>
+                    <span class="source-url">tomsachs.com</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #1e90ff;">Aesthetics</span>
+                </div>
+            </a>
+            <a href="https://www.trenchcrusade.com/lore/" target="_blank" class="link-card" data-tags="aesthetics">
+                <div>
+                    <span class="source-name">Trench Crusade</span>
+                    <span class="source-url">trenchcrusade.com/lore</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #1e90ff;">Aesthetics</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/channel/UC5mPJA4y5G8Z6aNkY6AxgAw" target="_blank" class="link-card" data-tags="filmmaking,maker,repair,workshop">
+                <div>
+                    <span class="source-name">Van Neistat</span>
+                    <span class="source-url">youtube.com/channel/UC5mPJA4y5G8Z6aNkY6AxgAw</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #ff9a9e;">Filmmaking</span>
+                    <span class="card-tag" style="background-color: #ff9ff3;">Maker</span>
+                    <span class="card-tag" style="background-color: #48dbfb;">Repair</span>
+                    <span class="card-tag" style="background-color: #ff4757;">Workshop</span>
+                </div>
+            </a>
+            <a href="https://www.zarki.net/" target="_blank" class="link-card" data-tags="aesthetics">
+                <div>
+                    <span class="source-name">Zarki</span>
+                    <span class="source-url">zarki.net</span>
+                </div>
+                <div class="card-tags">
+                    <span class="card-tag" style="background-color: #1e90ff;">Aesthetics</span>
+                </div>
+            </a>
+        </div>
     </main>
-
     <footer>
         <p>Collated with &hearts;</p>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tagBtns = document.querySelectorAll('.tag-btn');
+            const linkCards = document.querySelectorAll('.link-card');
+            let activeTags = new Set();
+
+            tagBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const tag = btn.dataset.tag;
+                    const color = btn.style.getPropertyValue('--active-bg');
+                    if (activeTags.has(tag)) {
+                        activeTags.delete(tag);
+                        btn.classList.remove('active');
+                        btn.style.backgroundColor = '';
+                    } else {
+                        activeTags.add(tag);
+                        btn.classList.add('active');
+                        btn.style.backgroundColor = color;
+                    }
+                    filterLinks();
+                });
+            });
+
+            function filterLinks() {
+                if (activeTags.size === 0) {
+                    linkCards.forEach(card => card.classList.remove('hidden'));
+                    return;
+                }
+                linkCards.forEach(card => {
+                    const cardTags = card.dataset.tags.split(',');
+                    // Show if card has ALL selected tags (AND logic) 
+                    // Or ANY selected tag (OR logic). Using OR logic for easy browsing.
+                    const hasTag = cardTags.some(t => activeTags.has(t));
+                    if (hasTag) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
