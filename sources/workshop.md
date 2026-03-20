@@ -1,17 +1,17 @@
-- [Adam Savage’s Tested](https://www.youtube.com/@tested)
-- [Bobby Fingers](https://www.youtube.com/@bobbyfingers/videos)
-- [AvE](https://www.youtube.com/@arduinoversusevil2025)
-- [Brunger Builds](https://www.youtube.com/@brungerbuilds/videos)
-- [No Engineer Here](https://www.youtube.com/@NoEngineerHere)
-- [Reps](https://www.youtube.com/@reps)
-- [Eirik Brandal](https://www.youtube.com/@EirikBrandalf/videos)
-- [Shipping Container Shop](https://www.youtube.com/watch?v=1FiaFoEp4us)
-- [Cyberpunk Miata](https://www.youtube.com/watch?v=PLJ24dAL-z4)
-- [Van Neistat](https://www.youtube.com/channel/UC5mPJA4y5G8Z6aNkY6AxgAw)
-- [Scott Yu-Jan](https://www.youtube.com/channel/UCAbAsEZ-0LccTNbl8r-3EaQ)
-- [Matthew Encina](https://www.youtube.com/channel/UCSLeoz5odIGS2GdlbHbCAUg)
-- [TLS Garage](https://www.youtube.com/channel/UCf2hu_ciyJ3NsikmcChTDnw)
-- [Save it For Parts](https://www.youtube.com/@saveitforparts)
-- [Mighty Car Mods](https://www.youtube.com/@mightycarmods)
-- [Hey H*ntai Car](https://www.youtube.com/watch?v=Ub9gJEZW0QI)
-- [Colin Furze!!!](https://www.youtube.com/@colinfurze)
+- [Adam Savage’s Tested](https://www.youtube.com/@tested) #fabrication #props #maker
+- [Bobby Fingers](https://www.youtube.com/@bobbyfingers/videos) #diorama #art #comedy
+- [AvE](https://www.youtube.com/@arduinoversusevil2025) #teardown #tools #comedy
+- [Brunger Builds](https://www.youtube.com/@brungerbuilds/videos) #fabrication #vehicles
+- [No Engineer Here](https://www.youtube.com/@NoEngineerHere) #fabrication #engineering
+- [Reps](https://www.youtube.com/@reps) #fabrication #maker
+- [Eirik Brandal](https://www.youtube.com/@EirikBrandalf/videos) #electronics #sound_art
+- [Shipping Container Shop](https://www.youtube.com/watch?v=1FiaFoEp4us) #workspace #architecture
+- [Cyberpunk Miata](https://www.youtube.com/watch?v=PLJ24dAL-z4) #cars #fabrication
+- [Van Neistat](https://www.youtube.com/channel/UC5mPJA4y5G8Z6aNkY6AxgAw) #filmmaking #repair #maker
+- [Scott Yu-Jan](https://www.youtube.com/channel/UCAbAsEZ-0LccTNbl8r-3EaQ) #design #3d_printing #minimalism
+- [Matthew Encina](https://www.youtube.com/channel/UCSLeoz5odIGS2GdlbHbCAUg) #workspace #design #productivity
+- [TLS Garage](https://www.youtube.com/channel/UCf2hu_ciyJ3NsikmcChTDnw) #cars #restoration
+- [Save it For Parts](https://www.youtube.com/@saveitforparts) #scavenging #mad_science #electronics
+- [Mighty Car Mods](https://www.youtube.com/@mightycarmods) #cars #comedy #fabrication
+- [Hey H*ntai Car](https://www.youtube.com/watch?v=Ub9gJEZW0QI) #cars #fabrication #comedy
+- [Colin Furze!!!](https://www.youtube.com/@colinfurze) #mad_science #fabrication #maker
