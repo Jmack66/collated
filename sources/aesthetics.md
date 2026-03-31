@@ -19,3 +19,5 @@
 - [The Desingers Republic](https://www.thedesignersrepublic.com/)
 - [Designers Republic Prints](https://divinerights.co.uk/)
 - [Nostalgia - Homes](https://m.youtube.com/@Nostalgia.Corporation)
+- [MetaHaven - Tick Tack Gallery expo](https://ticktack.be/artists/metahaven)
+- [Marathon Art Inspo](https://youtu.be/JHApRRthYgQ)
