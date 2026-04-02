@@ -17,7 +17,7 @@
 - [GxAce](https://www.youtube.com/@GxAce) #filmmaking
 - [Matthew Lim](https://www.youtube.com/channel/UC_ZOcNEBK87kdK88yMzdxXw)
 - [The Desingers Republic](https://www.thedesignersrepublic.com/)
-- [Designers Republic Prints](https://divinerights.co.uk/)
+- [Designers Republic Prints](https://divinerights.co.uk/) #art
 - [Nostalgia - Homes](https://m.youtube.com/@Nostalgia.Corporation)
 - [MetaHaven - Tick Tack Gallery expo](https://ticktack.be/artists/metahaven) #art
 - [Marathon Art Inspo](https://youtu.be/JHApRRthYgQ)
