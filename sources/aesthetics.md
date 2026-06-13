@@ -22,3 +22,4 @@
 - [MetaHaven - Tick Tack Gallery expo](https://ticktack.be/artists/metahaven) #art
 - [Marathon Art Inspo](https://youtu.be/JHApRRthYgQ)
 - [Grainrad - images and video effects tool](https://grainrad.com/) #filmmaking
+- [Motion graphics workflow](https://youtu.be/edUOvt6Y5ts) #filmmaking #art
