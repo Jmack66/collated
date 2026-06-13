@@ -15,3 +15,4 @@
 - [Mighty Car Mods](https://www.youtube.com/@mightycarmods) #cars #comedy #fabrication
 - [Hey H*ntai Car](https://www.youtube.com/watch?v=Ub9gJEZW0QI) #cars #fabrication #comedy
 - [Colin Furze!!!](https://www.youtube.com/@colinfurze) #mad_science #fabrication #maker
+- [Camper Car - Make with Miles](https://www.youtube.com/watch?v=sQvp4k5-Q2s) #cars #fabrication #maker
