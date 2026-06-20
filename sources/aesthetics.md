@@ -25,3 +25,6 @@
 - [Motion graphics workflow](https://youtu.be/edUOvt6Y5ts) #filmmaking #art
 - [Prop Making for Marathon - BlackHaul Studios](https://youtu.be/y2_I848IRM8) 
 - [Raptor House FX](https://www.raptorhousefx.com/services)
+- [Specimens - robotic art](https://specimens.ai/) #art
+- [Specimens IG](https://www.instagram.com/specimenslab/reel/DYQQzm7Nstm/) #art
+- 
