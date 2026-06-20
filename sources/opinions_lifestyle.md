@@ -7,3 +7,4 @@
 - [Anthropic CEO Blog Post](https://www.darioamodei.com/)
 - [Hack your brain with powerlifting](https://www.youtube.com/watch?v=WxN9VzwoGGw)
 - [Ben Jordan](https://www.youtube.com/@BennJordan)
+- [Sexism in Video Game Characters](https://www.youtube.com/watch?app=desktop&v=3YluLxHfSHU&feature=youtu.be)
