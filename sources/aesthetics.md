@@ -28,3 +28,4 @@
 - [Specimens - robotic art](https://specimens.ai/) #art
 - [Specimens IG](https://www.instagram.com/specimenslab/reel/DYQQzm7Nstm/) #art
 - [Divine Machinery - art movement essay (very cool)](https://www.youtube.com/watch?v=nJx9POvQ894) #art #filmmaking
+- [Phenomena Movie trailer - visual experiments](https://discord.com/channels/@me/262115085269467137/1529142487858286774) #art #filmmaking
